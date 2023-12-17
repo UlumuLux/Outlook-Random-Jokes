@@ -1,13 +1,10 @@
-<!-- Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT License. -->
-<!-- This file shows how to design a first-run page that provides a welcome screen to the user about the features of the add-in. -->
-
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Jokes-Generator</title>
+    <title>Joke-Generator</title>
 
     <!-- Office JavaScript API -->
     <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
@@ -17,21 +14,49 @@
   </head>
   <body>
     <main> 
-      <form>
+      <form onsubmit="return false">
+        <label id="lang-select-label" for="lang-select">Select Joke language</label>
+        <select id="lang-select" name="lang-select">
+          <option value="en" id="eng">English</option>
+          <option value="de" id="deu">German</option>
+          <option value="es" id="esp">Spanish</option>
+          <option value="fr" id="fre">French</option>
+          <option value="pt" id="por">Portuguese</option>
+          <option value="cs" id="cze">Czech</option>
+        </select>
+
         <fieldset id="categories">
           <legend id="categories-legend">Select category / categories</legend>
           <input type="radio" id="any" name="cat-type" checked><label id="any-label" for="any">Any</label><br>
           <input type="radio" id="custom" name="cat-type"><label id="custom-label" for="custom">Custom</label>
 
           <div id="categories-container">
-            <input type="checkbox" id="programming" name="prog"><label id="programming-label" for="programming">Programming</label><br>
-            <input type="checkbox" id="dark" name="dark"><label id="dark-label" for="Dark">Dark</label><br>
-            <input type="checkbox" id="pun" name="pun"><label id="pun-label" for="pun">Pun</label><br>
-            <input type="checkbox" id="spooky" name="spook"><label id="spooky-label" for="spooky">Spooky</label><br>
-            <input type="checkbox" id="xmas" name="xmas"><label id="xmas-label" for="xmas">Christmas</label><br>
-            <input type="checkbox" id="misc" name="misc"><label id="misc-label" for="misc">Misc</label>
+            <input type="checkbox" class="cat" id="programming" name="prog" value="Programming"><label id="programming-label" for="programming">Programming</label><br>
+            <input type="checkbox" class="cat" id="dark" name="dark" value="Dark"><label id="dark-label" for="Dark">Dark</label><br>
+            <input type="checkbox" class="cat" id="pun" name="pun" value="Pun"><label id="pun-label" for="pun">Pun</label><br>
+            <input type="checkbox" class="cat" id="spooky" name="spooky" value="Spooky"><label id="spooky-label" for="spooky">Spooky</label><br>
+            <input type="checkbox" class="cat" id="xmas" name="xmas" value="Christmas"><label id="xmas-label" for="xmas">Christmas</label><br>
+            <input type="checkbox" class="cat" id="misc" name="misc" value="Miscellaneous"><label id="misc-label" for="misc">Misc</label>
           </div>
         </fieldset>
+
+        <fieldset id="blacklist">
+          <legend id="blacklist-legend">Select flags to blacklist (optional)</legend>
+
+          <div id="blacklist-container">
+            <input type="checkbox" class="bl" id="nsfw" name="nsfw" value="nsfw"><label id="nsfw-label" for="nsfw">NSFW</label><br>
+            <input type="checkbox" class="bl" id="rel" name="rel" value="religious"><label id="rel-label" for="rel">Religious</label><br>
+            <input type="checkbox" class="bl" id="pol" name="pol" value="political"><label id="pol-label" for="pol">Political</label><br>
+            <input type="checkbox" class="bl" id="racist" name="racist" value="racist"><label id="racist-label" for="racist">Racist</label><br>
+            <input type="checkbox" class="bl" id="sex" name="sex" value="sexist"><label id="sex-label" for="sex">Sexist</label><br>
+            <input type="checkbox" class="bl" id="expl" name="expl" value="explicit"><label id="expl-label" for="expl">explicit</label>
+          </div>
+        </fieldset>
+
+        <label id="text-search-label" for="text-search">Joke contains this:</label>
+        <input type="text" id="text-search" name="text-search" value="" placeholder="Text contained in joke (optional)">
+
+        <button id="query-joke">Get Random Joke</button>
       </form>
     </main>
   </body>
