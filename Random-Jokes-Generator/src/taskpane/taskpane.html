@@ -16,6 +16,23 @@
     <link href="taskpane.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
+    <main> 
+      <form>
+        <fieldset id="categories">
+          <legend id="categories-legend">Select category / categories</legend>
+          <input type="radio" id="any" name="cat-type" checked><label id="any-label" for="any">Any</label><br>
+          <input type="radio" id="custom" name="cat-type"><label id="custom-label" for="custom">Custom</label>
 
+          <div id="categories-container">
+            <input type="checkbox" id="programming" name="prog"><label id="programming-label" for="programming">Programming</label><br>
+            <input type="checkbox" id="dark" name="dark"><label id="dark-label" for="Dark">Dark</label><br>
+            <input type="checkbox" id="pun" name="pun"><label id="pun-label" for="pun">Pun</label><br>
+            <input type="checkbox" id="spooky" name="spook"><label id="spooky-label" for="spooky">Spooky</label><br>
+            <input type="checkbox" id="xmas" name="xmas"><label id="xmas-label" for="xmas">Christmas</label><br>
+            <input type="checkbox" id="misc" name="misc"><label id="misc-label" for="misc">Misc</label>
+          </div>
+        </fieldset>
+      </form>
+    </main>
   </body>
 </html>
