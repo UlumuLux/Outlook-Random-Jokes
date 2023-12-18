@@ -50,5 +50,8 @@ export const HTMLElements = {
     TEXT_SEARCH_INPUT:                      document.getElementById('text-search') as HTMLInputElement,
 
     // Query button
-    QUERY_BUTTON:                           document.getElementById('query-joke')
+    QUERY_BUTTON:                           document.getElementById('query-joke'),
+
+    // Error container
+    ERROR_CONTAINER:                        document.getElementById('error-container')
 }

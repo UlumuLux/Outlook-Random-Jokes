@@ -27,8 +27,15 @@ Office.onReady((info) => {
 
 function getRandomJoke(): void {
   API_SVC.requestJoke().then(res => {
-    console.log(res);
+    if(res.error === true) {
+      HTMLElements.ERROR_CONTAINER.style.display = 'block';
+      HTMLElements.ERROR_CONTAINER.innerText = res.message;
+    } else {
+      HTMLElements.ERROR_CONTAINER.style.display = 'none';
+      console.log(res);
+    }
   }).catch((err) => {
     console.error(err);
+    HTMLElements.ERROR_CONTAINER.innerText = err.status.toString();
   });
 }

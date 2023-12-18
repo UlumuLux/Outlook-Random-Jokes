@@ -41,3 +41,11 @@ main {
 #query-joke {
   margin-top: 30px;
 }
+
+#error-container {
+  margin-top: 15px;
+  display: none;
+  font-size: large;
+  width: 100%;
+  text-align: center;
+}

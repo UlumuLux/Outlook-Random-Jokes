@@ -36,4 +36,7 @@ export function translate(): void {
     // Text search
     HTMLElements.TEXT_SEARCH_LABEL.innerText                   = STRINGS.tsLabel;
     HTMLElements.TEXT_SEARCH_INPUT.placeholder                 = STRINGS.tsPlaceholder;
+
+    // Query button
+    HTMLElements.QUERY_BUTTON.innerText                        = STRINGS.qb;
 }

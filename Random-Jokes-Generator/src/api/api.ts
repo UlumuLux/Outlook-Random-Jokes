@@ -24,24 +24,24 @@ export class API {
 
   private getCategories(): string {
     if(HTMLElements.CATEGORIES_ANY_RADIO.checked) {
-        return 'Any';
+      return 'Any?';
     } 
 
     let categories = '';
 
     Array.from(HTMLElements.CATEGORIES_ARRAY).forEach(cat => {
-        const category = cat as HTMLInputElement;
+      const category = cat as HTMLInputElement;
 
-        if(category.checked) {
-            if(categories !== '') {
-                categories += `,${category.value}`;
-            } else {
-                categories += category.value;
-            }
+      if(category.checked) {
+        if(categories !== '') {
+          categories += `,${category.value}`;
+        } else {
+          categories += category.value;
         }
+      }
     });
 
-    return categories;
+    return categories === '' ? 'Any?' : `${categories}?`;
   }
 
   private getBlacklistFlags(): string {
@@ -77,7 +77,7 @@ export class API {
     return search;
   }
 
-  public async requestJoke(): Promise<string> {
+  public async requestJoke(): Promise<any> {
     const URL = this.buildRequestURL();
 
     const JOKE = await fetch(URL);
