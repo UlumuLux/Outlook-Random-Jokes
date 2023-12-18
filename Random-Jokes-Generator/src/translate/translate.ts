@@ -6,7 +6,7 @@ export function translate(): void {
     const STRINGS  = UI_STRINGS.GET_LOCALE_STRINGS(LANGUAGE);
 
     // Placeholder button
-    HTMLElements.PLACEHODLER_INSERT_BUTTTON.innerText          = STRINGS.placeholderBtn;
+    HTMLElements.PLACEHOLDER_INSERT_BUTTTON.innerText          = STRINGS.placeholderBtn;
 
     // Language select
     HTMLElements.LANGUAGE_SELECTLABEL.innerText                = STRINGS.langSelect;

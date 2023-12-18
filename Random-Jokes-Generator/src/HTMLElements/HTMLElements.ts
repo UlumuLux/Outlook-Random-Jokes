@@ -1,6 +1,6 @@
 export const HTMLElements = {
     // Placeholder button
-    PLACEHODLER_INSERT_BUTTTON:             document.getElementById('insert-placeholder'),
+    PLACEHOLDER_INSERT_BUTTTON:             document.getElementById('insert-placeholder'),
 
     // Language select
     LANGUAGE_SELECT:                        document.getElementById('lang-select') as HTMLSelectElement,

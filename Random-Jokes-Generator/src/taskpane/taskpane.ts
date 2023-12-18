@@ -9,7 +9,7 @@ Office.onReady((info) => {
   translate();
 
   if (info.host === Office.HostType.Outlook) {
-    HTMLElements.PLACEHODLER_INSERT_BUTTTON.addEventListener('click', () => {
+    HTMLElements.PLACEHOLDER_INSERT_BUTTTON.addEventListener('click', () => {
       insertPlaceholder();
     });
 
