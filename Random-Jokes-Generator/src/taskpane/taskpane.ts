@@ -34,13 +34,10 @@ Office.onReady((info) => {
 function insertPlaceholder(): void {
   Office.context.mailbox.item.body.getAsync(Office.CoercionType.Text, function (result) {
     if (result.status === Office.AsyncResultStatus.Succeeded) {
+
         const currentBody = result.value;
-        const splittedBody = currentBody.split('\r');
         const placeholder = "[-[JOKE]-]";
-        splittedBody.push(placeholder);
-        console.log(splittedBody)
-        const newBody = splittedBody.join('\r\n');
-        console.log(newBody)
+        const newBody = currentBody + placeholder;
 
         Office.context.mailbox.item.body.setAsync(newBody, { coercionType: Office.CoercionType.Text }, function (setBodyResult) {
             if (setBodyResult.status === Office.AsyncResultStatus.Succeeded) {
@@ -88,6 +85,10 @@ async function insertJoke(): Promise<void> {
 
   return new Promise((resolve, reject) => {
     if(success) {
+      HTMLElements.SUCCESS_CONTAINER.style.display = 'block';
+      setTimeout(() => {
+        HTMLElements.SUCCESS_CONTAINER.style.display = 'none';
+      }, 3500);
       resolve();
     } else {
       reject('Something went wring inserting the joke!');

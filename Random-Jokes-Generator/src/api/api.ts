@@ -88,6 +88,6 @@ export class API {
       } else {
         resolve(JOKE.json());
       }
-    })
+    });
   }
 }

@@ -56,5 +56,8 @@ export const HTMLElements = {
     QUERY_BUTTON:                           document.getElementById('query-joke'),
 
     // Error container
-    ERROR_CONTAINER:                        document.getElementById('error-container')
+    ERROR_CONTAINER:                        document.getElementById('error-container'),
+
+    // Success container
+    SUCCESS_CONTAINER:                      document.getElementById('success-container')
 }

@@ -36,7 +36,10 @@ export const UI_STRINGS = {
         'tsPlaceholder': 'Text contained in joke (optional)',
 
         // Query button
-        'qb': 'Insert Random Joke'
+        'qb': 'Insert Random Joke',
+
+        // Sucess container
+        'success': 'Joke successfully inserted!'
     },
     DE: {
         // Placeholder button
@@ -75,7 +78,10 @@ export const UI_STRINGS = {
         'tsPlaceholder': 'Text in Witz enthalten (optional)',
 
         // Query button
-        'qb': 'Zufälligen Witz einfügen'
+        'qb': 'Zufälligen Witz einfügen',
+
+        // Sucess container
+        'success': 'Witz erfolgreich eingefügt!'
     },
     GET_LOCALE_STRINGS: function getLocaleStrings(locale: string) {
         if(locale.startsWith('de')) {

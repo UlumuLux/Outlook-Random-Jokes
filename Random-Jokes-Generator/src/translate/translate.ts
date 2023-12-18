@@ -42,4 +42,7 @@ export function translate(): void {
 
     // Query button
     HTMLElements.QUERY_BUTTON.innerText                        = STRINGS.qb;
+
+    // Success container
+    HTMLElements.SUCCESS_CONTAINER.innerText                   = STRINGS.success;
 }
