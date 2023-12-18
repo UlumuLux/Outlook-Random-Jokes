@@ -10,6 +10,10 @@ main {
   padding: 10px;
 }
 
+#insert-placeholder {
+  margin-bottom: 30px;
+}
+
 #lang-select-label {
   font-size: large;
 }
@@ -44,8 +48,11 @@ main {
 
 #error-container {
   margin-top: 15px;
+  padding: 10px 0 10px 0;
   display: none;
   font-size: large;
+  color: #ffffff;
   width: 100%;
   text-align: center;
+  background-color: rgb(245, 120, 120, 0.8);
 }

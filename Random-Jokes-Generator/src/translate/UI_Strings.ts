@@ -1,5 +1,8 @@
 export const UI_STRINGS = {
     EN: {
+        // Placeholder button
+        'placeholderBtn': 'Insert Placeholder',
+
         // Language select
         'langSelect': 'Select joke language',
         'langEN': 'English',
@@ -36,6 +39,9 @@ export const UI_STRINGS = {
         'qb': 'Insert Random Joke'
     },
     DE: {
+        // Placeholder button
+        'placeholderBtn': 'Platzhalter einfügen',
+
         // Language select
         'langSelect': 'Witz-Sprache auswählen',
         'langEN': 'Englisch',

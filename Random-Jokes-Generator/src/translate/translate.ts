@@ -5,6 +5,9 @@ export function translate(): void {
     const LANGUAGE = Office.context.displayLanguage;
     const STRINGS  = UI_STRINGS.GET_LOCALE_STRINGS(LANGUAGE);
 
+    // Placeholder button
+    HTMLElements.PLACEHODLER_INSERT_BUTTTON.innerText          = STRINGS.placeholderBtn;
+
     // Language select
     HTMLElements.LANGUAGE_SELECTLABEL.innerText                = STRINGS.langSelect;
     HTMLElements.LANGUAGE_ENGLISH.innerText                    = STRINGS.langEN;
