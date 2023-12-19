@@ -36,7 +36,7 @@ function insertPlaceholder(): void {
     if (result.status === Office.AsyncResultStatus.Succeeded) {
 
         const currentBody = result.value;
-        const placeholder = "[-[JOKE]-]";
+        const placeholder = '[-[JOKE]-]';
         const newBody = currentBody + placeholder;
 
         Office.context.mailbox.item.body.setAsync(newBody, { coercionType: Office.CoercionType.Text }, function (setBodyResult) {
@@ -91,7 +91,7 @@ async function insertJoke(): Promise<void> {
       }, 3500);
       resolve();
     } else {
-      reject('Something went wring inserting the joke!');
+      reject('Something went wrong inserting the joke!');
     }
   });
 }
@@ -100,20 +100,25 @@ async function replacePlaceholder(joke: string, secondPart?: string): Promise<bo
   return new Promise((resolve, reject) => {
     Office.context.mailbox.item.body.getAsync(Office.CoercionType.Text, function (result) {
       if (result.status === Office.AsyncResultStatus.Succeeded) {
-          const jokeVal = !secondPart ? joke : `${joke}\n${secondPart}`;
-          let body = result.value;
-          let newBody = body.replace('[-[JOKE]-]', jokeVal);
+        const jokeVal = !secondPart ? joke : `${joke}\n${secondPart}`;
+        let body = result.value;
+
+        if(!body.includes('[-[JOKE]-]')) {   
+          return;
+        }
+
+        let newBody = body.replace('[-[JOKE]-]', jokeVal);
   
-          Office.context.mailbox.item.body.setAsync(newBody, { coercionType: Office.CoercionType.Text }, function (setBodyResult) {
-              if (setBodyResult.status === Office.AsyncResultStatus.Succeeded) {
-                  resolve(true);
-                  console.log('Joke inserted!');
-              } else {
-                  reject('Error inserting joke: ' + setBodyResult.error.message);
-              }
-          });
+        Office.context.mailbox.item.body.setAsync(newBody, { coercionType: Office.CoercionType.Text }, function (setBodyResult) {
+          if (setBodyResult.status === Office.AsyncResultStatus.Succeeded) {
+            resolve(true);
+              console.log('Joke inserted!');
+          } else {
+            reject('Error inserting joke: ' + setBodyResult.error.message);
+          }
+        });
       } else {
-          reject('Error getting email body: ' + result.error.message);
+        reject('Error getting email body: ' + result.error.message);
       }
     });
   });
